@@ -12,6 +12,7 @@ export interface UserProps {
   id: UUID;
   name: FullName;
   email: string;
+  password: string;
   passwordHash: string;
   role: UserType;
   deletedAccountAt?: Date | null;
@@ -19,7 +20,7 @@ export interface UserProps {
 }
 
 export class User {
-  private _id: UUID;
+  private readonly _id: UUID;
   private props: UserProps;
 
   constructor(id: UUID, props: Replace<UserProps, { createdAt?: Date }>) {
@@ -36,5 +37,9 @@ export class User {
 
   public set name(name: FullName) {
     this.props.name = name;
+  }
+
+  public get name(): FullName {
+    return this.props.name;
   }
 }
