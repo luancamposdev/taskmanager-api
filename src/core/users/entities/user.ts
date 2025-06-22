@@ -4,21 +4,20 @@ import { Replace } from '../../../helpers/replace';
 import { FullName } from '../value-objects/fullName';
 import { Email } from '../value-objects/email.vo';
 import { Password } from '../value-objects/password';
-import { passwordHash } from '../value-objects/PasswordHash';
+import { PasswordHash } from '../value-objects/PasswordHash';
 import { AvatarUrl } from '../value-objects/avatar-url';
 
-enum UserType {
+export enum UserType {
   ADMIN = 'ADMIN',
   USER = 'USER',
 }
 
 export interface UserProps {
-  id: UUID;
   name: FullName;
   email: Email;
   avatarUrl: AvatarUrl;
   password: Password;
-  passwordHash: passwordHash;
+  passwordHash: PasswordHash;
   role: UserType;
   deletedAccountAt?: Date | null;
   createdAt: Date;
@@ -72,19 +71,19 @@ export class User {
     return this.props.password;
   }
 
-  public set passwordHash(passwordHash: passwordHash) {
+  public set passwordHash(passwordHash: PasswordHash) {
     this.props.passwordHash = passwordHash;
   }
 
-  public get passwordHash(): passwordHash {
+  public get passwordHash(): PasswordHash {
     return this.props.passwordHash;
   }
 
-  public set Role(role: UserType) {
+  public set role(role: UserType) {
     this.props.role = role;
   }
 
-  public get Role(): UserType {
+  public get role(): UserType {
     return this.props.role;
   }
 
