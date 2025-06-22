@@ -1,7 +1,7 @@
 export class AvatarUrl {
   private readonly _url: string;
 
-  public get value(): string {
+  public getValue(): string {
     return this._url;
   }
 
