@@ -17,7 +17,7 @@ export class AvatarUrl {
 
     const trimmed = url.trim();
 
-    const urlRegex = /^(http?:\/\/)[^\s$.?#].[^\s]*$/gm;
+    const urlRegex = /^(https?:\/\/)[^\s$.?#].[^\s]*$/gm;
     return urlRegex.test(trimmed);
   }
 
