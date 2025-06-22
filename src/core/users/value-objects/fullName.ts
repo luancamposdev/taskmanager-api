@@ -1,7 +1,7 @@
 export class FullName {
   private readonly _fullName: string;
 
-  get value(): string {
+  public get value(): string {
     return this._fullName;
   }
 

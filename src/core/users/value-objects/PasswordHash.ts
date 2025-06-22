@@ -1,25 +1,25 @@
 import * as bcrypt from 'bcrypt';
 import { Password } from './password';
 
-export class passwordHash {
+export class PasswordHash {
   private readonly hash: string;
 
   private constructor(hash: string) {
     this.hash = hash;
   }
 
-  static async fromPassword(password: Password): Promise<passwordHash> {
+  static async fromPassword(password: Password): Promise<PasswordHash> {
     const saltRounds = 10;
     const hashed = await bcrypt.hash(password.getValue(), saltRounds);
-    return new passwordHash(hashed);
+    return new PasswordHash(hashed);
   }
 
-  static fromHash(hash: string): passwordHash {
+  static fromHash(hash: string): PasswordHash {
     if (!hash.startsWith('$2')) {
       throw new Error('Invalid hash format');
     }
 
-    return new passwordHash(hash);
+    return new PasswordHash(hash);
   }
 
   async compare(password: Password): Promise<boolean> {
