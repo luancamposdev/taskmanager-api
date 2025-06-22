@@ -1,18 +1,30 @@
 export class AvatarUrl {
-  private readonly url: string;
+  private readonly _url: string;
 
   public get value(): string {
-    return this.url;
+    return this._url;
   }
 
-  public toString(): string {
-    return this.url;
+  static create(url: string): AvatarUrl {
+    if (!AvatarUrl.isValid(url)) {
+      throw new Error('Invalid avatar URL');
+    }
+    return new AvatarUrl(url.trim());
+  }
+
+  public static isValid(url: string): boolean {
+    if (!url) return false;
+
+    const trimmed = url.trim();
+
+    const urlRegex = /^(http?:\/\/)[^\s$.?#].[^\s]*$/gm;
+    return urlRegex.test(trimmed);
   }
 
   constructor(url: string) {
     if (!url.startsWith('http')) {
       throw new Error('Invalid avatar URL');
     }
-    this.url = url;
+    this._url = url;
   }
 }
