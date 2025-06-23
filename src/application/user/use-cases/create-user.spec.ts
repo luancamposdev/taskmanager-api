@@ -1,5 +1,5 @@
 import { CreateUser } from './create-user';
-import { InMemoryRepository } from '../../../../test/in-memory-user-repository';
+import { InMemoryRepository } from '@test/in-memory-user-repository';
 
 describe('CreateUserUseCase', () => {
   it('Should create a user with valid data', async () => {

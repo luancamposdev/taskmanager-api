@@ -1,13 +1,13 @@
 import { randomUUID } from 'node:crypto';
 
-import { User, UserType } from '../../../core/users/entities/user';
-import { UserRepository } from '../../../core/users/repositories/user-repository';
-import { AvatarUrl } from '../../../core/users/value-objects/avatar-url';
-import { Email } from '../../../core/users/value-objects/email.vo';
+import { User, UserType } from '@core/users/entities/user';
+import { UserRepository } from '@core/users/repositories/user-repository';
+import { AvatarUrl } from '@core/users/value-objects/avatar-url';
+import { Email } from '@core/users/value-objects/email.vo';
 
-import { FullName } from '../../../core/users/value-objects/fullName';
-import { Password } from '../../../core/users/value-objects/password';
-import { PasswordHash } from '../../../core/users/value-objects/PasswordHash';
+import { FullName } from '@core/users/value-objects/fullName';
+import { Password } from '@core/users/value-objects/password';
+import { PasswordHash } from '@core/users/value-objects/PasswordHash';
 
 interface CreateUserRequest {
   name: string;

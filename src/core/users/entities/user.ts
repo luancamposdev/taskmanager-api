@@ -1,6 +1,6 @@
 import { UUID, randomUUID } from 'node:crypto';
 
-import { Replace } from '../../../helpers/replace';
+import { Replace } from '@helpers/replace';
 import { FullName } from '../value-objects/fullName';
 import { Email } from '../value-objects/email.vo';
 import { Password } from '../value-objects/password';
