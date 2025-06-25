@@ -4,12 +4,12 @@ import { UserRepository } from '@/core/users/repositories/user-repository';
 import { Email } from '@/core/users/value-objects/email.vo';
 import { Password } from '@/core/users/value-objects/password';
 
-interface Request {
+export interface Request {
   email: string;
   password: string;
 }
 
-interface Response {
+export interface Response {
   token: string;
   user: {
     id: string;
